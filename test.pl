@@ -1,3 +1,4 @@
+# $Id: test.pl,v 1.2 2001/11/09 08:17:04 comdog Exp $
 # Before `make install' is performed this script should be runnable with
 # `make test'. After `make install' it should work as `perl test.pl'
 
@@ -24,18 +25,18 @@ $test++;
 $p->parse_file('example.html');
 my @links = $p->links;
 
-print @links == 21 ? "" : "not ", "ok $test\n";
+print @links == 22 ? "" : "not ", "ok $test\n";
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 my @test = qw(
 	href	     14
 	background    1
-	src           6
+	src           7
 	
 	base          1
 	body          1
 	a             7
-	img           3
+	img           4
 	area          6
 	frame         3
 	);
