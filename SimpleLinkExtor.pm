@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.5 2004/06/15 20:05:47 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.6 2004/06/15 20:31:24 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -9,7 +9,7 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.5 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.6 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -178,7 +178,9 @@ HTML tag name or attribute name). If a E<lt>BASE HREFE<gt> tag
 is found, all of the relative URLs will be resolved according to
 that reference.
 
-This module is simply a subclass around C<HTML::LinkExtor>.
+This module is simply a subclass around C<HTML::LinkExtor>, so
+it can only parse what that module can handle.  Invalid HTML
+or XHTML may cause problems.
 
 =over
 
