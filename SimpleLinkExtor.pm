@@ -8,21 +8,22 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = 0.5;
+$VERSION = 0.7;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
 
 %AUTO_METHODS = qw(
     background attribute
-	href	   attribute
-	src	       attribute
+	href   attribute
+	src    attribute
 
 	a       tag
 	area	tag
 	base    tag
 	body    tag
-	img		tag
+	img	tag
+	frame	tag
 	);
 
 sub new
@@ -149,7 +150,9 @@ HTML::SimpleLinkExtor - Extract links from HTML
 
 	#extract the img links
 	@img_srcs    = $extor->img;
-	@img_srcs    = $extor->src;
+
+	#extract the frame links
+	@frame_srcs  = $extor->frame;
 
 	#extract the hrefs
 	@area_hrefs  = $extor->area;
@@ -207,6 +210,11 @@ Return a list of the links.
 
 Return a list of the links from all the SRC attributes of the
 IMG.
+
+=item $extor->frame
+
+Return a list of all the links from all the SRC attributes of
+the FRAME.
 
 =item $extor->src
 

@@ -4,8 +4,13 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'         => 'HTML::SimpleLinkExtor',
     'VERSION_FROM' => 'SimpleLinkExtor.pm', # finds $VERSION
-    'PREREQ_PM'    => { 'HTML::LinkExtor' => 0,
-                        'URI'             => 0,
+    'PREREQ_PM'    => { 'HTML::LinkExtor' => 1.28,
+                        'URI'             => 1.09,
                       },
+	'dist'          => {
+	                   'COMPRESS'        => 'gzip -9f',
+	                   'SUFFIX'          => 'gz',
+	                   },
+
 
 );

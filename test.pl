@@ -6,7 +6,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 # (It may become useful if the test is moved to ./t subdirectory.)
 
-BEGIN { $test = 1; $| = 1; print "1..11\n"; }
+BEGIN { $test = 1; $| = 1; print "1..12\n"; }
 END {print "not ok 1\n" unless $loaded;}
 use HTML::SimpleLinkExtor;
 $loaded = 1;
@@ -24,19 +24,20 @@ $test++;
 $p->parse_file('example.html');
 my @links = $p->links;
 
-print @links == 18 ? "" : "not ", "ok $test\n";
+print @links == 21 ? "" : "not ", "ok $test\n";
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 my @test = qw(
 	href	     14
 	background    1
-	src           3
+	src           6
 	
 	base          1
 	body          1
 	a             7
 	img           3
 	area          6
+	frame         3
 	);
 	
 while ( my $method = shift @test )
