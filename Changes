@@ -1,5 +1,9 @@
-# $Id: Changes,v 1.4 2004/06/15 20:33:13 comdog Exp $
+# $Id: Changes,v 1.5 2004/09/08 01:45:31 comdog Exp $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.08 - Tue Sep  7 20:45:10 2004
+* cleaned up distribution
+* no need to upgrade
 
 1.06 - Tue Jun 15 13:32:38 2004
 * added test for SCRIPT tag

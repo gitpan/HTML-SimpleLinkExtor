@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.8 2004/09/08 01:44:00 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.9 2005/03/12 04:52:25 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -9,7 +9,7 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.8 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.9 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -283,7 +283,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2004 brian d foy.  All rights reserved.
+Copyright (c) 2004-2005 brian d foy.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
