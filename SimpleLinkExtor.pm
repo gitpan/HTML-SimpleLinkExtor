@@ -8,7 +8,7 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = 0.7;
+$VERSION = 0.71;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -254,6 +254,6 @@ have links.  If someone wants those, I'll add them.
 
 =head1 AUTHOR
 
-brian d foy <brian@smithrenaud.com>
+brian d foy <comdog@panix.com>
 
 =cut
