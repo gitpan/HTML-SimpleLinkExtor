@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.2 2001/11/09 08:17:04 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.5 2004/06/15 20:05:47 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -9,22 +9,24 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = 0.72;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.5 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
 
 %AUTO_METHODS = qw(
     background attribute
-	href   attribute
-	src    attribute
+	href	attribute
+	src		attribute
 
-	a       tag
+	a		tag
 	area	tag
 	base    tag
 	body    tag
-	img	tag
+	img		tag
 	frame	tag
+	
+	script	tag
 	);
 
 sub new
@@ -246,20 +248,44 @@ tag.
 
 Return the link from the BODY tag's BACKGROUND attribute.
 
+=item $extor->script
+
+Return the link from the SCRIPT tag's SRC attribute
+
 =back
 
 =head1 TO DO
 
 This module doesn't handle all of the HTML tags that might 
-have links.  If someone wants those, I'll add them.
+have links.  If someone wants those, I'll add them, or you
+can edit %AUTO_METHODS in the source.
 
-=head1 THANKS TO
+=head1 CREDITS
 
 Will Crain who identified a problem with IMG links that had
 a USEMAP attribute.
 
-=head1 AUTHOR
+=head1 SOURCE AVAILABILITY
 
-brian d foy <bdfoy@cpan.org>
+This source is part of a SourceForge project which always has the
+latest sources in CVS, as well as all of the previous releases.
+
+	http://sourceforge.net/projects/brian-d-foy/
+	
+If, for some reason, I disappear from the world, one of the other
+members of the project can shepherd this module appropriately.
+
+=head1 AUTHORS
+
+brian d foy, E<lt>bdfoy@cpan.orgE<gt>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2004 brian d foy.  All rights reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
+
+1;

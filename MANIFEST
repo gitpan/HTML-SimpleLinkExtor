@@ -1,7 +1,11 @@
-# $Id: MANIFEST,v 1.2 2001/11/09 08:17:04 comdog Exp $
+# $Id: MANIFEST,v 1.4 2004/06/15 20:05:47 comdog Exp $
 Changes
 MANIFEST
 Makefile.PL
 SimpleLinkExtor.pm
-test.pl
-example.html
+META.yml                                 Module meta-data (added by MakeMaker)
+t/example.html
+t/compile.t
+t/pod.t
+t/parse.t
+t/test_manifest
