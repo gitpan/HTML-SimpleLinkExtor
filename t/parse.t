@@ -1,9 +1,11 @@
-# $Id: parse.t,v 1.2 2004/06/15 20:31:24 comdog Exp $
+# $Id: parse.t,v 1.3 2005/08/16 19:41:18 comdog Exp $
 
-use Test::More tests => 13;
+use Test::More tests => 15;
 
 use_ok( "HTML::SimpleLinkExtor" );
 
+my $file = 't/example.html';
+ok( -e $file, "Example file is there" );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 $test++;
@@ -12,7 +14,7 @@ ok( ref $p, "Made parser object" );
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 $test++;
-$p->parse_file('t/example.html');
+$p->parse_file( $file );
 my @links = $p->links;
 
 is( scalar @links, 23, "Found the right number of links" );
@@ -43,3 +45,15 @@ while ( my $method = shift @test )
 	is( scalar @list, $expected, 
 		"Found the right number of links for <$method>" );
 	}
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+use Data::Dumper;
+#print STDERR Dumper( $p );
+
+$p->clear_links;
+#print STDERR Dumper( $p );
+@links = $p->links;
+
+is( scalar @links, 0, "Found the no links after clear_links" );
+
+
