@@ -1,5 +1,11 @@
-# $Id: Changes,v 1.6 2005/03/12 04:53:08 comdog Exp $
+# $Id: Changes,v 1.7 2005/08/16 19:43:38 comdog Exp $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.10 - Tue Aug 16 14:42:24 2005
+	* added a clear_links() method so you can start fresh if you
+	want to parse multiple files with the same parser object. This
+	does not affect previous behavior, so old scripts should be
+	safe.
 
 1.09 - Fri Mar 11 22:52:40 2005
 	* Added POD coverage tests, fixed issues

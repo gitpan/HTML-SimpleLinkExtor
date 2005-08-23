@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.10 2005/08/16 19:41:18 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.11 2005/08/23 03:44:01 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -9,7 +9,7 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.10 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -25,6 +25,7 @@ $DEBUG   = 0;
 	body    tag
 	img		tag
 	frame	tag
+	iframe  tag
 
 	script	tag
 	);
@@ -51,6 +52,8 @@ sub links
 
 	return map { $$_[2] } $self->_link_refs;
 	}
+
+sub frames { ( $_[0]->frame, $_[0]->iframe ) }
 
 sub AUTOLOAD
 	{
@@ -257,6 +260,15 @@ IMG.
 
 Return a list of all the links from all the SRC attributes of
 the FRAME.
+
+=item $extor->iframe
+
+Return a list of all the links from all the SRC attributes of
+the IFRAME.
+
+=item $extor->frames
+
+Returns the combined list from frame and iframe.
 
 =item $extor->src
 
