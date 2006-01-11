@@ -1,4 +1,4 @@
-# $Id: compile.t,v 1.1 2004/06/15 19:43:42 comdog Exp $
+# $Id: compile.t,v 1.2 2006/01/11 06:51:20 comdog Exp $
 
 BEGIN {
 	our @modules = qw(
@@ -10,6 +10,5 @@ use Test::More tests => scalar @modules;
 
 foreach my $module ( @modules )
 	{	
-	print "bail out! [$module] has problems\n" 
-		unless use_ok( $module );
+	print "bail out! [$module] has problems\n" unless use_ok( $module );
 	}

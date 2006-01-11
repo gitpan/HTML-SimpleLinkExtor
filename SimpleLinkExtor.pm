@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.11 2005/08/23 03:44:01 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.12 2006/01/11 06:51:20 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -9,7 +9,7 @@ use AutoLoader;
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.11 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.12 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -151,12 +151,18 @@ sub _add_base
 	my $array_ref = shift;
 
 	my $base      = $self->{'_SimpleLinkExtor_base'};
-
-	foreach ( 0 .. $#{$array_ref} )
+	next unless $base;
+	
+	foreach my $tuple ( @$array_ref )
 		{
-		my $url = URI->new( ${$$array_ref[$_]}[-1] );
-		next unless ref $url;
-		${$$array_ref[$_]}[-1] = $url->abs($base);
+		foreach my $index ( 1 .. $#$tuple )
+			{
+			next unless exists $AUTO_METHODS{ $tuple->[$index] };
+			
+			my $url = URI->new( $tuple->[$index + 1] );
+			next unless ref $url;
+			$tuple->[$index + 1] = $url->abs($base);
+			}
 		}
 	}
 
