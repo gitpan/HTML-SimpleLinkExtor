@@ -1,5 +1,17 @@
-# $Id: Changes,v 1.8 2005/08/23 03:44:58 comdog Exp $
+# $Id: Changes,v 1.10 2006/05/27 07:23:40 comdog Exp $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.13 - Sat May 27 02:21:37 2006
+	* Added functions to add tags and attributes to the list that
+	the module will parse. You don't have to fool with the internal
+	hash or email me to make changes anymore!
+	* Unless you want this feature, you don't need to upgrade.
+
+1.12 - Wed Jan 11 00:51:33 2006
+	* rt.cpan.org: Ticket #16942: A bug in my URL resolution code
+	only resolved the last URL found in a tag. Now the code goes through
+	all the value and resolves each that it thinks should be a URL
+	* Everyone should upgrade
 
 1.11 - Mon Aug 22 22:44:18 2005
 	* added support for iframe src extraction
