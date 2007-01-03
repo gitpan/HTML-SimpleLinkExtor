@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.4 2005/08/16 19:41:18 comdog Exp $
+# $Id: Makefile.PL,v 1.5 2007/01/03 04:44:01 comdog Exp $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";   
@@ -9,11 +9,18 @@ WriteMakefile(
     'PREREQ_PM'    => { 
     	'HTML::LinkExtor' => '1.28',
 		'URI'             => '1.09',
+		'LWP::Simple'     => '0',
 		},
 		
 	'MAN3PODS'     => {
 		'SimpleLinkExtor.pm' => '$(INST_MAN3DIR)/HTML::SimpleLinkExtor.3',
 		},
+
+	'MAN1PODS'     => {
+		'scripts/linktractor' => '$(INST_MAN3DIR)/linktractor.1',
+		},
+
+	'EXE_FILES'    => [ 'scripts/linktractor' ],
 	
 	'dist'         => {
 		'COMPRESS'        => 'gzip -9f',

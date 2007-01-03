@@ -1,4 +1,4 @@
-$Id: README,v 1.1 2004/09/08 01:44:00 comdog Exp $
+$Id: README,v 1.2 2007/01/03 04:44:01 comdog Exp $
 
 You can install this using in the usual Perl fashion
 
@@ -21,6 +21,8 @@ This module is also in CVS on SourceForge
 
 	http://sourceforge.net/projects/brian-d-foy/
 
+You may use HTML::SimpleLink::Extor under the same terms as Perl
+itself.
 
 Enjoy, 
 
