@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.14 2007/01/03 04:44:01 comdog Exp $
+# $Id: SimpleLinkExtor.pm,v 1.15 2007/01/04 17:36:42 comdog Exp $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -10,7 +10,7 @@ use Carp qw(carp);
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.14 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = sprintf "%d.%02d", q$Revision: 1.15 $ =~ m/ (\d+) \. (\d+) /xg;
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -219,6 +219,20 @@ sub _add_base
 		}
 	}
 
+sub parse_url
+	{
+	my $self = shift;
+	my $url  = shift;
+	
+	require LWP::Simple;
+	
+	my $data = LWP::Simple::get( $url );
+	
+	return unless defined $data;
+	
+	$self->parse( $data );
+	}
+	
 1;
 __END__
 =head1 NAME
@@ -283,13 +297,13 @@ reset the link list between files, use the clear_links method.
 
 Create the link extractor object.
 
+=item $extor = HTML::SimpleLinkExtor->new('')
 =item $extor = HTML::SimpleLinkExtor->new($base)
 
 Create the link extractor object and resolve the relative URLs
 accoridng to the supplied base URL. The supplied base URL overrides
 any other base URL found in the HTML.
 
-=item $extor = HTML::SimpleLinkExtor->new('')
 
 Create the link extractor object and do not resolve relative
 links.
@@ -341,6 +355,10 @@ Returns a list of the tags C<HTML::SimpleLinkExtor> pays attention to.
 =item $extor->parse_file( $filename )
 
 Parse the file for links.
+
+=item $extor->parse_url( $url )
+
+Fetch URL and parse its content for links.
 
 =item $extor->parse( $data )
 

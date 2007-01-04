@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.5 2007/01/03 04:44:01 comdog Exp $
+# $Id: Makefile.PL,v 1.6 2007/01/04 17:36:42 comdog Exp $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";   
@@ -17,7 +17,7 @@ WriteMakefile(
 		},
 
 	'MAN1PODS'     => {
-		'scripts/linktractor' => '$(INST_MAN3DIR)/linktractor.1',
+		'scripts/linktractor' => '$(INST_MAN1DIR)/linktractor.1',
 		},
 
 	'EXE_FILES'    => [ 'scripts/linktractor' ],
