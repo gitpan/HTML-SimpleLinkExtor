@@ -1,5 +1,9 @@
-# $Id: Changes,v 1.12 2007/01/04 17:37:27 comdog Exp $
+# $Id: Changes,v 1.13 2007/01/10 04:07:23 comdog Exp $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.16 - Tue Jan  9 22:07:34 2007
+	* updated copyright and license info
+	* no code changes, so no need to upgrade
 
 1.15 - Thu Jan  4 11:37:02 2007
 	* added parse_url method to fetch remote data for link extraction

@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.6 2007/01/04 17:36:42 comdog Exp $
+# $Id: Makefile.PL,v 1.7 2007/01/10 04:07:01 comdog Exp $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";   
@@ -6,6 +6,7 @@ eval "use Test::Manifest 1.14";
 WriteMakefile(
     'NAME'         => 'HTML::SimpleLinkExtor',
     'VERSION_FROM' => 'SimpleLinkExtor.pm',
+	'LICENSE'       => 'perl',
     'PREREQ_PM'    => { 
     	'HTML::LinkExtor' => '1.28',
 		'URI'             => '1.09',
