@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                HTML-SimpleLinkExtor
-version:             1.16
+version:             1.17
 abstract:            ~
 license:             perl
 generated_by:        ExtUtils::MakeMaker version 6.31
@@ -12,3 +12,5 @@ requires:
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.2.html
     version: 1.2
+author:
+    - brian d foy <bdfoy@cpan.org>

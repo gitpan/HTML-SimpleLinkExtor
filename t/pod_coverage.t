@@ -1,4 +1,4 @@
-# $Id: pod_coverage.t,v 1.1 2005/03/12 04:52:25 comdog Exp $
+# $Id: pod_coverage.t 1611 2005-03-12 04:52:25Z comdog $
 
 use Test::More;
 eval "use Test::Pod::Coverage";

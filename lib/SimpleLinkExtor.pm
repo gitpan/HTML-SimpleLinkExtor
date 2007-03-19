@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm,v 1.16 2007/01/10 04:07:01 comdog Exp $
+# $Id: SimpleLinkExtor.pm 2225 2007-03-19 05:22:52Z comdog $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -10,7 +10,9 @@ use Carp qw(carp);
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = sprintf "%d.%02d", q$Revision: 1.16 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = 1.17;
+#sprintf "%d.%02d", q$Revision: 2225 $ =~ m/ (\d+) \. (\d+) /xg;
+
 $DEBUG   = 0;
 
 @ISA = qw(HTML::LinkExtor);
@@ -452,7 +454,7 @@ members of the project can shepherd this module appropriately.
 
 brian d foy, C<< <bdfoy@cpan.org> >>
 
-=head1 COPYRIGHT AND LICENS
+=head1 COPYRIGHT AND LICENSE
 
 Copyright (c) 2004-2007 brian d foy.  All rights reserved.
 

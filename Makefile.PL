@@ -1,20 +1,26 @@
-# $Id: Makefile.PL,v 1.7 2007/01/10 04:07:01 comdog Exp $
+# $Id: Makefile.PL 2226 2007-03-19 05:31:18Z comdog $
 use ExtUtils::MakeMaker;
 
 eval "use Test::Manifest 1.14";   
    
 WriteMakefile(
     'NAME'         => 'HTML::SimpleLinkExtor',
-    'VERSION_FROM' => 'SimpleLinkExtor.pm',
-	'LICENSE'       => 'perl',
-    'PREREQ_PM'    => { 
+    'VERSION_FROM' => 'lib/SimpleLinkExtor.pm',
+	'LICENSE'      => 'perl',
+	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
+	
+ 	'PM'           => {
+		'lib/SimpleLinkExtor.pm'=> '$(INST_LIBDIR)/SimpleLinkExtor.pm',
+		},
+
+   'PREREQ_PM'     => { 
     	'HTML::LinkExtor' => '1.28',
 		'URI'             => '1.09',
 		'LWP::Simple'     => '0',
 		},
 		
 	'MAN3PODS'     => {
-		'SimpleLinkExtor.pm' => '$(INST_MAN3DIR)/HTML::SimpleLinkExtor.3',
+		'lib/SimpleLinkExtor.pm' => '$(INST_MAN3DIR)/HTML::SimpleLinkExtor.3',
 		},
 
 	'MAN1PODS'     => {

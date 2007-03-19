@@ -1,4 +1,4 @@
-# $Id: compile.t,v 1.2 2006/01/11 06:51:20 comdog Exp $
+# $Id: compile.t 1726 2006-01-11 06:51:20Z comdog $
 
 BEGIN {
 	our @modules = qw(
