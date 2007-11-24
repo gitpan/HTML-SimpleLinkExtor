@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm 2225 2007-03-19 05:22:52Z comdog $
+# $Id: SimpleLinkExtor.pm 2426 2007-11-24 10:43:17Z comdog $
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -10,8 +10,7 @@ use Carp qw(carp);
 use HTML::LinkExtor;
 use URI;
 
-$VERSION = 1.17;
-#sprintf "%d.%02d", q$Revision: 2225 $ =~ m/ (\d+) \. (\d+) /xg;
+$VERSION = 1.18;
 
 $DEBUG   = 0;
 

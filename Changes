@@ -1,5 +1,9 @@
-# $Id: Changes 2227 2007-03-19 05:33:37Z comdog $
+# $Id: Changes 2427 2007-11-24 10:43:47Z comdog $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.18 - Sat Nov 24 04:44:09 2007
+	* Cleanups for the move from CVS to SVN
+	* No need to upgrade
 
 1.17 - Sun Mar 18 22:32:01 2007
 	* Cleaning up the dist a bit
