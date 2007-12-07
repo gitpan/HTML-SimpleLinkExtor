@@ -1,5 +1,10 @@
-# $Id: Changes 2427 2007-11-24 10:43:47Z comdog $
+# $Id: Changes 2447 2007-12-07 07:34:05Z comdog $
 Revision history for Perl extension HTML::SimpleLinkExtor.
+
+1.19 - Fri Dec  7 01:32:15 2007
+	* RT #31160: added a schemes() method to extract links by their
+	scheme, and absolute_links() and relative_links() to extract
+	by their absoluteness. :)
 
 1.18 - Sat Nov 24 04:44:09 2007
 	* Cleanups for the move from CVS to SVN

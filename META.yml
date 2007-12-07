@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                HTML-SimpleLinkExtor
-version:             1.18
+version:             1.19
 abstract:            Extract links from HTML
 license:             perl
 generated_by:        ExtUtils::MakeMaker version 6.36
