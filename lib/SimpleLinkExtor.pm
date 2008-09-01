@@ -1,4 +1,4 @@
-# $Id: SimpleLinkExtor.pm 2445 2007-12-07 07:15:14Z comdog $
+# $Id$
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -6,16 +6,15 @@ use warnings;
 no warnings;
 
 use subs qw();
-use vars qw($VERSION @ISA %AUTO_METHODS $AUTOLOAD $DEBUG);
+use vars qw($VERSION @ISA %AUTO_METHODS $AUTOLOAD );
 
 use AutoLoader;
 use Carp qw(carp);
 use HTML::LinkExtor;
+use LWP::UserAgent;
 use URI;
 
-$VERSION = 1.19;
-
-$DEBUG   = 0;
+$VERSION = 1.20;
 
 @ISA = qw(HTML::LinkExtor);
 
@@ -44,7 +43,6 @@ sub AUTOLOAD
 	my $method = $AUTOLOAD;
 
 	$method =~ s/.*:://;
-	print STDERR "AUTOLOAD: method is $method\n" if $DEBUG;
 
 	unless( exists $AUTO_METHODS{$method} )
 		{
@@ -52,10 +50,31 @@ sub AUTOLOAD
 		return;
 		}
 
-	print STDERR "AUTOLOAD: calling _extract\n" if $DEBUG;
 	$self->_extract( $method );
 	}
 
+sub can
+	{
+	my( $self, @methods ) = @_;
+
+	foreach my $method ( @methods )
+		{
+		return 0 unless $self->_can( $method );
+		}
+
+	return 1;
+	}
+	
+sub _can
+	{
+	no strict 'refs';
+
+	return 1 if exists $AUTO_METHODS{ $_[1] };
+	return 1 if defined &{"$_[1]"};
+	
+	return 0;
+	}
+	
 sub _init_links
 	{
 	my $self  = shift;
@@ -110,9 +129,8 @@ sub _link_refs
 		#splice @link_refs, $count, 1, () if $found;
 		}
 
-	$self->_add_base(\@link_refs) if $self->{'_SimpleLinkExtor_base'};
+	$self->_add_base(\@link_refs);
 
-	print "_link_refs: there are $#link_refs + 1 links\n" if $DEBUG;
 	return @link_refs;
 	}
 
@@ -122,13 +140,11 @@ sub _extract
 	my $method    = shift;
 
 	my $position  = $AUTO_METHODS{$method} eq 'tag' ? 0 : 1;
-	print "_extract: Position is $position\n" if $DEBUG;
 
 	my @links = map  { $$_[2] }
 	            grep { $_->[$position] eq $method }
 	            $self->_link_refs;
 
-	print "_extract: There are $#links + 1 links\n" if $DEBUG;
 	return @links;
 	}
 
@@ -138,7 +154,7 @@ sub _add_base
 	my $array_ref = shift;
 
 	my $base      = $self->{'_SimpleLinkExtor_base'};
-	next unless $base;
+	return unless $base;
 	
 	foreach my $tuple ( @$array_ref )
 		{
@@ -239,10 +255,19 @@ sub new
 	bless $self, $class;
 
 	$self->{'_SimpleLinkExtor_base'} = $base;
+	$self->{'_ua'} = LWP::UserAgent->new;
 	$self->_init_links;
 	
 	return $self;
 	}
+
+=item HTML::SimpleLinkExtor->ua;
+
+Returns the internal user agent, an C<LWP::UserAgent> object.
+
+=cut
+
+sub ua { $_[0]->{_ua} }
 
 =item HTML::SimpleLinkExtor->add_tags( TAG [, TAG ] )
 
@@ -270,6 +295,12 @@ another attribute that this module doesn't handle, please send it to
 me and I'll add it. Until then you can add that attribute to the
 internal list. This affects the entire class, including previously
 created objects.
+
+=cut
+
+=item can()
+
+A smarter C<can> that can tell which attributes are also methods.
 
 =cut
 
@@ -361,16 +392,11 @@ Fetch URL and parse its content for links.
 
 sub parse_url
 	{
-	my $self = shift;
-	my $url  = shift;
+	my $data = $_[0]->ua->get( $_[1] )->content;
+		
+	return unless $data;
 	
-	require LWP::Simple;
-	
-	my $data = LWP::Simple::get( $url );
-	
-	return unless defined $data;
-	
-	$self->parse( $data );
+	$_[0]->parse( $data );
 	}
 
 =item $extor->parse( $data )
@@ -394,9 +420,7 @@ Return a list of the links.
 
 sub links
 	{
-	my $self = shift;
-
-	return map { $$_[2] } $self->_link_refs;
+	return map { $$_[3] } $_[0]->_link_refs;
 	}
 
 =item $extor->img

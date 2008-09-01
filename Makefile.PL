@@ -1,4 +1,4 @@
-# $Id: Makefile.PL 2426 2007-11-24 10:43:17Z comdog $
+# $Id$
 use ExtUtils::MakeMaker;
 
 require 5.006;
@@ -19,8 +19,9 @@ WriteMakefile
 
    'PREREQ_PM'     => { 
     	'HTML::LinkExtor' => '1.28',
+		'LWP::UserAgent'  => '0',
+		'Test::Output'    => '0',
 		'URI'             => '1.09',
-		'LWP::Simple'     => '0',
 		},
 		
 	'MAN3PODS'     => {
