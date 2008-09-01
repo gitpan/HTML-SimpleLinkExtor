@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                HTML-SimpleLinkExtor
-version:             1.21
+version:             1.21_01
 abstract:            Extract links from HTML
 license:             perl
 author:              
