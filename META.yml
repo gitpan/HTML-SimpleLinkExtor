@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                HTML-SimpleLinkExtor
-version:             1.21_01
+version:             1.21_02
 abstract:            Extract links from HTML
 license:             perl
 author:              
@@ -12,6 +12,7 @@ requires:
     LWP::UserAgent:                0
     Test::Output:                  0
     URI:                           1.09
+    URI::file:                     0
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
     version: 1.3
