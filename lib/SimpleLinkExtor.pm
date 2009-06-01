@@ -1,4 +1,3 @@
-# $Id$
 package HTML::SimpleLinkExtor;
 use strict;
 
@@ -6,7 +5,7 @@ use warnings;
 no warnings;
 
 use subs qw();
-use vars qw($VERSION @ISA %AUTO_METHODS $AUTOLOAD );
+use vars qw( $VERSION @ISA %AUTO_METHODS $AUTOLOAD );
 
 use AutoLoader;
 use Carp qw(carp);
@@ -14,7 +13,7 @@ use HTML::LinkExtor;
 use LWP::UserAgent;
 use URI;
 
-$VERSION = '1.22';
+$VERSION = '1.23';
 
 @ISA = qw(HTML::LinkExtor);
 
@@ -420,7 +419,7 @@ Return a list of the links.
 
 sub links
 	{
-	return map { $$_[3] } $_[0]->_link_refs;
+	map { $$_[2] } $_[0]->_link_refs;
 	}
 
 =item $extor->img
@@ -532,7 +531,7 @@ sub absolute_links
 			length $scheme;
 			}
 		map { $$_[2] } 
-			$self->_link_refs;
+		$self->_link_refs;
 	
 	wantarray ? @links : scalar @links;
 	}
