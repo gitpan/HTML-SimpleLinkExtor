@@ -1,5 +1,10 @@
 Revision history for Perl extension HTML::SimpleLinkExtor.
 
+1.24 - Thu Aug  4 06:37:30 2011
+	* Fix clear_links so it actually clears the links
+	* Convert most tests to use subtest and Test::More 0.90
+	* Cleanups for the move to Github
+
 1.23 - Mon Jun  1 01:04:37 2009
 	* RT #45198: close off iframe tags in example HTML since 
 	HTML::Parser >= 3.56 now ignores the content of iframes

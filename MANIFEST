@@ -1,9 +1,11 @@
 Changes
 examples/README
-lib/SimpleLinkExtor.pm
+lib/HTML/SimpleLinkExtor.pm
 LICENSE
 Makefile.PL
 MANIFEST
+META.yml			Module meta-data (added by MakeMaker)
+MYMETA.yml
 README
 scripts/linktractor
 t/absolute_links.t
@@ -18,4 +20,3 @@ t/relative_links.t
 t/schemes.t
 t/tags.t
 t/test_manifest
-META.yml                                 Module meta-data (added by MakeMaker)

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               HTML-SimpleLinkExtor
-version:            1.23
+version:            1.24
 abstract:           Extract links from HTML
 author:
     - brian d foy <bdfoy@cpan.org>
@@ -13,14 +13,17 @@ build_requires:
 requires:
     HTML::LinkExtor:  1.28
     LWP::UserAgent:   0
+    Test::More:       0.90
     Test::Output:     0
     URI:              1.09
     URI::file:        0
+resources:
+    repository:  https://github.com/briandfoy/html-simplelinkextor
 no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.50
+generated_by:       ExtUtils::MakeMaker version 6.57_05
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4
