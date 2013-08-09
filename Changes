@@ -1,7 +1,8 @@
 Revision history for Perl extension HTML::SimpleLinkExtor.
 
-1.25 - Fri Aug  5 07:56:17 2011
-	* I need Test::More 0.96 for subtests and done_testing.
+1.25_01 - Fri Aug  9 14:34:27 2013
+	* Filter links by allowed tags. I should have been doing this
+	all along.  RT #87288
 
 1.24 - Thu Aug  4 06:37:30 2011
 	* Fix clear_links so it actually clears the links
