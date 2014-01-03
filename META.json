@@ -41,11 +41,11 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "repository" : {
          "url" : "https://github.com/briandfoy/html-simplelinkextor"
       }
    },
-   "version" : "1.25_01"
+   "version" : "1.26"
 }

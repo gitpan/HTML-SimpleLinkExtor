@@ -26,4 +26,4 @@ requires:
   URI::file: 0
 resources:
   repository: https://github.com/briandfoy/html-simplelinkextor
-version: 1.25_01
+version: 1.26
